@@ -6,14 +6,14 @@ const process = require("process");
 const axios = require("axios");
 
 const generateText = (data) => {
-  generate = new markov(data);
-  wow = generate.makeText((numWords = 100));
+  let generate = new markov(data);
+  text = generate.makeText((numWords = 100));
   fs.writeFile("new.txt", wow, "utf8", function (err) {
     if (err) {
       console.error(`Couldn't write: ${err}`);
       process.exit(1);
     } else {
-      console.log(wow);
+      console.log(text);
     }
   });
 };
@@ -46,5 +46,6 @@ if (format === "file") {
 } else if (format === "url") {
   fromUrl(path);
 } else {
-  console.log("specify format");
+  console.log(`Unknown format: ${format}`);
+  process.exit(1);
 }

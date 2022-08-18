@@ -60,11 +60,6 @@ class MarkovMachine {
       } else {
         console.log(text);
         return false;
-        randomKey = this.keys[Math.floor(Math.random() * this.keys.length)];
-        randVal =
-          this.obj[randomKey][
-            Math.floor(Math.random() * this.obj[randomKey].length)
-          ];
       }
 
       /* console.log(randVal); */
