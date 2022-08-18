@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jdarling96/Markov/issues"
   },
-  "homepage": "https://github.com/jdarling96/Markov#readme"
+  "homepage": "https://github.com/jdarling96/Markov#readme",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
 }

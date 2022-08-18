@@ -32,9 +32,9 @@ class MarkovMachine {
       if (this.words[idx + 1] === undefined) this.words[idx + 1] = null;
       obj[word].push(this.words[idx + 1]);
     });
-    
-    this.obj = obj
-    this.keys = Object.keys(this.obj)
+
+    this.obj = obj;
+    this.keys = Object.keys(this.obj);
     this.randomKey = this.keys[Math.floor(Math.random() * this.keys.length)];
 
     /** return random text from chains */
@@ -42,51 +42,40 @@ class MarkovMachine {
   makeText(numWords = 10) {
     // TODO
     // num of words to generate from our chain
-    /* console.log(this.obj);
-    console.log(this.randomKey) */
-    let randomKey = this.randomKey
-   /*  console.log(randomKey) */
-    let text = []
-    let i = 0
-    
+
+    let randomKey = this.randomKey;
+
+    let text = [];
+    let i = 0;
 
     while (i < numWords) {
-
-      let randVal = this.obj[randomKey][Math.floor(Math.random() * this.obj[randomKey].length)]
-      if(randVal !== null){
-        randomKey = randVal
-        text.push(randVal)
-        i++
-      }
-      else{
-        console.log(text)
-        return false
+      let randVal =
+        this.obj[randomKey][
+          Math.floor(Math.random() * this.obj[randomKey].length)
+        ];
+      if (randVal !== null) {
+        randomKey = randVal;
+        text.push(randVal);
+        i++;
+      } else {
+        console.log(text);
+        return false;
         randomKey = this.keys[Math.floor(Math.random() * this.keys.length)];
-        randVal = this.obj[randomKey][Math.floor(Math.random() * this.obj[randomKey].length)]
+        randVal =
+          this.obj[randomKey][
+            Math.floor(Math.random() * this.obj[randomKey].length)
+          ];
       }
-     
-       console.log(randVal)
-       /* if(randVal === null){
-         let keys = Object.keys(this.obj)
-         console.log(keys)
-         this.randomKey = keys[Math.floor(Math.random() * keys.length)];
-         console.log(this.randomKey)
- 
-       }
-       else{
-         text.push(randVal)
-         
-         this.randomKey = randVal
-         
-         i++
-         
- 
-       } */
-     }
-     console.log(text)
- 
-}
+
+      /* console.log(randVal); */
+    }
+    let textToString = text.join(' ')
+    console.log(textToString);
+    return textToString
+  }
+  
 }
 
-testing = new MarkovMachine("the cat in the hat is in the hat");
-testing.makeText();
+
+
+module.exports = MarkovMachine
