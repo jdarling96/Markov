@@ -69,13 +69,10 @@ class MarkovMachine {
 
       /* console.log(randVal); */
     }
-    let textToString = text.join(' ')
-    console.log(textToString);
-    return textToString
+    let textToString = text.join(" ");
+
+    return textToString;
   }
-  
 }
 
-
-
-module.exports = MarkovMachine
+module.exports = MarkovMachine;
